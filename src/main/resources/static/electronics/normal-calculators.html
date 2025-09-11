@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Normal Electronics Calculators</title>
+<link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+<h1>🔋 Normal Electronics Calculators</h1>
+
+<!-- Ohm's Law -->
+<section>
+    <h2>⚖️ Ohm’s Law</h2>
+    <label>Voltage (V): <input type="number" id="v" value="0"></label>
+    <label>Current (I): <input type="number" id="i" value="0"></label>
+    <label>Resistance (R): <input type="number" id="r" value="0"></label>
+    <button onclick="calculateOhmsLaw()">Calculate</button>
+    <div class="output" id="ohmsResult"></div>
+</section>
+
+<!-- Series Circuit -->
+<section>
+    <h2>📏 Series Circuit</h2>
+    <label>Resistors (comma-separated Ω): <input type="text" id="seriesInput" placeholder="10,20,30"></label>
+    <button onclick="calculateSeries()">Calculate</button>
+    <div class="output" id="seriesResult"></div>
+</section>
+
+<!-- Parallel Circuit -->
+<section>
+    <h2>🔗 Parallel Circuit</h2>
+    <label>Resistors (comma-separated Ω): <input type="text" id="parallelInput" placeholder="10,20,30"></label>
+    <button onclick="calculateParallel()">Calculate</button>
+    <div class="output" id="parallelResult"></div>
+</section>
+
+<!-- Transformer -->
+<section>
+    <h2>🔄 Transformer</h2>
+    <label>Primary Voltage (Vp): <input type="number" id="vp" value="0"></label>
+    <label>Turns Ratio (Np/Ns): <input type="number" id="turns" value="1"></label>
+    <button onclick="calculateTransformer()">Calculate</button>
+    <div class="output" id="transformerResult"></div>
+</section>
+
+<!-- Cable Resistance -->
+<section>
+    <h2>🧵 Cable Resistance</h2>
+    <label>Length (m): <input type="number" id="length" value="0"></label>
+    <label>Area (mm²): <input type="number" id="area" value="1"></label>
+    <label>Resistivity (Ω·mm²/m): <input type="number" id="resistivity" value="0.0175"></label>
+    <button onclick="calculateCable()">Calculate</button>
+    <div class="output" id="cableResult"></div>
+</section>
+
+<a href="electronics.html">⬅ Back to Electronics Hub</a>
+<script src="../js/calculator.js"></script>
+</body>
+</html>

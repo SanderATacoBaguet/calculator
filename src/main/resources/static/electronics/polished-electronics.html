@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Normal Electronics Calculators - TacoBaguet™</title>
+    <link rel="stylesheet" href="../css/polished-style.css">
+</head>
+<body>
+    <h1>🔋 Normal Electronics Calculators</h1>
+    <button id="themeToggle">🌓 Toggle Light/Dark Mode</button>
+
+    <details open>
+        <summary>⚖️ Ohm’s Law</summary>
+        <div class="calculator">
+            Voltage (V): <input type="number" id="ohmV" value="10"><br>
+            Current (I): <input type="number" id="ohmI" value="20.2"><br>
+            <button onclick="calculateOhms()">Calculate</button>
+            <div id="ohmResult"></div>
+        </div>
+    </details>
+
+    <details>
+        <summary>📏 Series Circuit</summary>
+        <div class="calculator">
+            Resistors (comma-separated Ω): <input type="text" id="seriesInput" value="15,10,502.41"><br>
+            <button onclick="calculateSeries()">Calculate</button>
+            <div id="seriesResult"></div>
+        </div>
+    </details>
+
+    <details>
+        <summary>🔗 Parallel Circuit</summary>
+        <div class="calculator">
+            Resistors (comma-separated Ω): <input type="text" id="parallelInput" value="24,24.4"><br>
+            <button onclick="calculateParallel()">Calculate</button>
+            <div id="parallelResult"></div>
+        </div>
+    </details>
+
+    <details>
+        <summary>🔄 Transformer</summary>
+        <div class="calculator">
+            Primary Voltage (Vp): <input type="number" id="primaryV" value="240.4"><br>
+            Turns Ratio (Np/Ns): <input type="number" id="turnsRatio" value="102.4"><br>
+            <button onclick="calculateTransformer()">Calculate</button>
+            <div id="transformerResult"></div>
+        </div>
+    </details>
+
+    <details>
+        <summary>🧵 Cable Resistance</summary>
+        <div class="calculator">
+            Length (m): <input type="number" id="cableLength" value="10"><br>
+            Area (mm²): <input type="number" id="cableArea" value="1"><br>
+            Resistivity (Ω·mm²/m): <input type="number" id="resistivity" value="0.0175" step="0.0001"><br>
+            <button onclick="calculateCable()">Calculate</button>
+            <div id="cableResult"></div>
+        </div>
+    </details>
+
+    <p><a href="../electronics/normal-calculators.html">⬅ Back to Electronics Hub</a></p>
+
+    <script src="../js/polished-electronics.js" defer></script>
+</body>
+</html>

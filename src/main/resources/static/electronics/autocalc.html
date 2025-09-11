@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Electric Calculator - TacoBaguet™</title>
+<link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+<h1>⚡ Electric Circuit Calculator</h1>
+
+<label>Voltage (V): <input type="number" id="voltage" value="24"></label>
+
+<h2>Add Resistor</h2>
+<label>Value (Ω): <input type="number" id="resistorValue" placeholder="10"></label>
+<label>Type:
+    <select id="resistorType">
+        <option value="S">Series</option>
+        <option value="P">Parallel</option>
+    </select>
+</label>
+<label>Parallel Group (optional): <input type="text" id="parallelGroup" placeholder="P1, P2"></label>
+<button onclick="addResistor()">➕ Add Resistor</button>
+
+<h2>Resistors List:</h2>
+<div id="resistorList"></div>
+
+<button onclick="calculateCircuit()">✅ Calculate Circuit</button>
+
+<h2>Results:</h2>
+<div id="results"></div>
+
+<script src="../js/electric.js"></script>
+</body>
+</html>

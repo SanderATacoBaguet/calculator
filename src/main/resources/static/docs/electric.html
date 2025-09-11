@@ -1,0 +1,13 @@
+<h1>Electric Calculator Explained</h1>
+
+<h2>Backend Logic</h2>
+<pre>
+@PostMapping("/electric/calculate")
+public Map&lt;String,Object&gt; calculateCircuit(@RequestBody Map&lt;String,Object&gt; payload){...}
+</pre>
+
+<h2>How It Works</h2>
+<p>The calculator receives a list of resistors, identifies parallel groups, sums series resistances, and computes total current using Ohm's Law (I = V / R).</p>
+
+<h2>Alternative Methods</h2>
+<p>Instead of using parallel groups, you could implement nested arrays or string formulas, but this Series/Parallel + Group method is simple and easy to maintain.</p>

@@ -1,0 +1,41 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 50px;
+    background: #f8f9fa;
+    text-align: center;
+}
+
+h1 {
+    color: #d35400; /* TacoBaguet™ color */
+    font-size: 3em;
+    margin-bottom: 5px;
+}
+
+h2 {
+    margin-bottom: 30px;
+    font-weight: normal;
+    color: #2c3e50;
+}
+
+.menu {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    align-items: center;
+}
+
+a {
+    display: block;
+    padding: 15px 30px;
+    text-decoration: none;
+    background: #3498db;
+    color: white;
+    border-radius: 10px;
+    font-size: 20px;
+    width: 200px;
+    transition: background 0.2s;
+}
+
+a:hover {
+    background: #2980b9;
+}
