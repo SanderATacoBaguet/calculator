@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>💰 Finance Calculator - TacoBaguet™</title>
+<link rel="stylesheet" href="../css/style.css">
+<style>
+    body { font-family: system-ui, sans-serif; padding: 20px; background: #f7f7f7; color: #111; }
+    h1 { margin-bottom: 20px; }
+    section { margin-bottom: 20px; }
+    label { display: block; margin-top: 8px; }
+    input { padding: 6px; margin-left: 6px; width: 100px; }
+    button { margin-top: 10px; padding: 8px 14px; background: #ff6600; color: #fff; border: none; border-radius: 6px; cursor: pointer; }
+    button:hover { opacity: 0.9; }
+    .output { margin-top: 10px; font-weight: bold; }
+    #advancedSection { margin-top: 20px; border-top: 1px solid #ccc; padding-top: 10px; display: none; }
+</style>
+</head>
+<body>
+
+<h1>💰 Finance Calculator</h1>
+
+<section>
+    <h2>Simple Calculations</h2>
+    <label>Principal ($): <input type="number" id="principal" value="0"></label>
+    <label>Rate (% per year): <input type="number" id="rate" value="0"></label>
+    <label>Time (years): <input type="number" id="time" value="0"></label>
+    <button onclick="calculateSimpleInterest()">Calculate Simple Interest</button>
+    <div class="output" id="siResult"></div>
+</section>
+
+<section>
+    <button onclick="toggleAdvanced()">Show Advanced Calculations ⚡</button>
+</section>
+
+<section id="advancedSection">
+    <h2>Advanced Calculations</h2>
+    <label>Principal ($): <input type="number" id="cPrincipal" value="0"></label>
+    <label>Rate (% per year): <input type="number" id="cRate" value="0"></label>
+    <label>Time (years): <input type="number" id="cTime" value="0"></label>
+    <label>Compounds per Year: <input type="number" id="compounds" value="1"></label>
+    <button onclick="calculateCompoundInterest()">Calculate Compound Interest</button>
+    <div class="output" id="ciResult"></div>
+</section>
+
+<a href="calculators.html">⬅ Back to Calculators Hub</a>
+
+<script src="../js/finance.js"></script>
+</body>
+</html>

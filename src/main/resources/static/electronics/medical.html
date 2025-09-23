@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>🩺 Medical Calculator - TacoBaguet™</title>
+<link rel="stylesheet" href="../css/style.css">
+<style>
+    body { font-family: system-ui, sans-serif; padding: 20px; background: #f7f7f7; color: #111; }
+    h1 { margin-bottom: 20px; }
+    section { margin-bottom: 20px; }
+    label { display: block; margin-top: 8px; }
+    input { padding: 6px; margin-left: 6px; width: 100px; }
+    button { margin-top: 10px; padding: 8px 14px; background: #ff6600; color: #fff; border: none; border-radius: 6px; cursor: pointer; }
+    button:hover { opacity: 0.9; }
+    .output { margin-top: 10px; font-weight: bold; }
+    #advancedSection { margin-top: 20px; border-top: 1px solid #ccc; padding-top: 10px; display: none; }
+</style>
+</head>
+<body>
+
+<h1>🩺 Medical Calculator</h1>
+
+<section>
+    <h2>Simple Calculations</h2>
+    <label>Weight (kg): <input type="number" id="weight" value="0"></label>
+    <label>Height (cm): <input type="number" id="height" value="0"></label>
+    <button onclick="calculateBMI()">Calculate BMI</button>
+    <div class="output" id="bmiResult"></div>
+</section>
+
+<section>
+    <button onclick="toggleAdvanced()">Show Advanced Calculations ⚡</button>
+</section>
+
+<section id="advancedSection">
+    <h2>Advanced Calculations</h2>
+    <label>Systolic BP: <input type="number" id="systolic" value="0"></label>
+    <label>Diastolic BP: <input type="number" id="diastolic" value="0"></label>
+    <button onclick="calculateMAP()">Calculate Mean Arterial Pressure</button>
+    <div class="output" id="mapResult"></div>
+</section>
+
+<a href="calculators.html">⬅ Back to Calculators Hub</a>
+
+<script src="../js/medical.js"></script>
+</body>
+</html>

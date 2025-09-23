@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Account | TacoBaguet Hub</title>
+<link rel="stylesheet" href="../css/style.css">
+<style>
+.card{
+    background:#fff;
+    padding:20px;
+    border-radius:8px;
+    max-width:500px;
+    margin:auto;
+    box-shadow:0 1px 6px rgba(0,0,0,0.1);
+}
+label { display:block; margin:8px 0; }
+button { padding:8px 14px; border-radius:6px; background:#ff6600; color:white; border:none; cursor:pointer; margin-top:10px; }
+</style>
+</head>
+<body>
+<header><a href="../index.html">🏠 Home</a></header>
+<main>
+<div class="card">
+<h2>Account Management</h2>
+<p>Username: <span id="username"></span> <button id="changeNameBtn">Change</button></p>
+<p>Email: <span id="email"></span></p>
+<p>Password: ****** <button id="changePassBtn">Change</button></p>
+
+<h3>Preferences</h3>
+<label><input type="checkbox" id="darkModeToggle"> Dark Mode</label>
+<label><input type="checkbox" id="gamesToggle"> Show Games Tab</label>
+<label><input type="checkbox" id="toolsToggle"> Show Tools Tab</label>
+<label><input type="checkbox" id="videosToggle"> Show Videos Tab</label><br>
+<button id="applyBtn">Apply Changes</button>
+<p id="accountMsg" style="color:green;"></p>
+</div>
+</main>
+
+<script src="../js/PlaceHolder.js"></script>
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+    const user = getCurrentUser();
+    if(!user){ window.location.href = "login.html"; return; }
+
+    // Set initial values
+    document.getElementById("username").textContent = user.username;
+    document.getElementById("email").textContent = user.email;
+
+    const darkToggle = document.getElementById("darkModeToggle");
+    darkToggle.checked = user.preferences?.darkMode || false;
+
+    const gamesToggle = document.getElementById("gamesToggle");
+    const toolsToggle = document.getElementById("toolsToggle");
+    const videosToggle = document.getElementById("videosToggle");
+
+    gamesToggle.checked = user.preferences?.gamesToggle ?? true;
+    toolsToggle.checked = user.preferences?.toolsToggle ?? true;
+    videosToggle.checked = user.preferences?.videosToggle ?? true;
+
+    // Change name
+    document.getElementById("changeNameBtn").addEventListener("click", ()=>{
+        const newName = prompt("Enter new username:", user.username);
+        if(newName){ user.username = newName; saveUser(user); document.getElementById("username").textContent = newName; }
+    });
+
+    // Change password
+    document.getElementById("changePassBtn").addEventListener("click", ()=>{
+        const newPass = prompt("Enter new password:");
+        if(newPass){ user.password = newPass; saveUser(user); alert("Password updated!"); }
+    });
+
+    // Apply button
+    document.getElementById("applyBtn").addEventListener("click", ()=>{
+        user.preferences.darkMode = darkToggle.checked;
+        user.preferences.gamesToggle = gamesToggle.checked;
+        user.preferences.toolsToggle = toolsToggle.checked;
+        user.preferences.videosToggle = videosToggle.checked;
+        saveUser(user);
+        applyPreferences(user.preferences,true);
+        document.getElementById("accountMsg").textContent = "✅ Changes applied!";
+        setTimeout(()=>{document.getElementById("accountMsg").textContent="";},2000);
+    });
+
+    // Initial apply
+    applyPreferences(user.preferences,true);
+});
+</script>
+</body>
+</html>

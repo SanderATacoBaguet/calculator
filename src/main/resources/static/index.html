@@ -1,76 +1,75 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>TacoBaguet™ Hub</title>
-  <link rel="stylesheet" href="css/style.css" />
-  <style>
-    /* Minimal header/topbar layout — move to css/style.css later */
-    :root { --accent: #ff6600; --bg: #0f1724; --text: #ffffff; }
-    *{box-sizing:border-box}
-    body{margin:0;font-family:system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif; background:#f7f7f7;color:#111}
-    header{background:var(--bg);color:var(--text);padding:12px 18px;display:flex;align-items:center;gap:18px}
-    .brand{display:flex;align-items:center;gap:12px}
-    .brand h1{font-size:1.125rem;margin:0}
-    nav{flex:1}
-    nav ul{display:flex;gap:18px;list-style:none;margin:0;padding:0;align-items:center}
-    nav a{color:var(--text);text-decoration:none;font-weight:600}
-    .top-actions{display:flex;align-items:center;gap:12px}
-    .btn{display:inline-block;padding:8px 12px;border-radius:8px;background:var(--accent);color:#fff;text-decoration:none;font-weight:700}
-    .container{max-width:1100px;margin:28px auto;padding:0 18px}
-    .featured{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:12px;margin-top:18px}
-    .card{background:#fff;padding:14px;border-radius:8px;box-shadow:0 1px 6px rgba(0,0,0,0.06)}
-    footer{padding:18px;text-align:center;color:#666;font-size:.9rem}
-
-    @media (max-width:640px){
-      nav ul{display:none}
-    }
-  </style>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>TacoBaguet™ Hub</title>
+<link rel="stylesheet" href="css/style.css" />
+<style>
+  :root { --accent: #ff6600; --bg: #0f1724; --text: #ffffff; }
+  body{margin:0;font-family:system-ui, sans-serif;background:#f7f7f7;color:#111}
+  header{background:var(--bg);color:var(--text);padding:12px 18px;display:flex;align-items:center;gap:18px}
+  .brand{display:flex;align-items:center;gap:12px}
+  .brand h1{font-size:1.125rem;margin:0}
+  nav{flex:1}
+  nav ul{display:flex;gap:18px;list-style:none;margin:0;padding:0;align-items:center}
+  nav a{color:var(--text);text-decoration:none;font-weight:600}
+  .top-actions{display:flex;align-items:center;gap:12px}
+  .btn{display:inline-block;padding:8px 12px;border-radius:8px;background:var(--accent);color:#fff;text-decoration:none;font-weight:700}
+  .container{max-width:1100px;margin:28px auto;padding:0 18px}
+  .featured{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:12px;margin-top:18px}
+  .card{background:#fff;padding:14px;border-radius:8px;box-shadow:0 1px 6px rgba(0,0,0,0.06)}
+  footer{padding:18px;text-align:center;color:#666;font-size:.9rem}
+  .user-menu{position:relative;display:inline-block}
+  .user-menu span{cursor:pointer;font-weight:bold}
+  .dropdown{display:none;position:absolute;right:0;background:white;color:black;border:1px solid #ccc;padding:10px;border-radius:6px;min-width:200px;z-index:100}
+  .user-menu:hover .dropdown{display:block}
+  .dropdown a{display:block;margin-top:6px;color:#333;text-decoration:none}
+</style>
 </head>
 <body>
-  <header>
-    <div class="brand" aria-label="TacoBaguet Brand">
-      <h1>TacoBaguet™ HUB</h1>
+<header>
+  <div class="brand"><h1>TacoBaguet™ HUB</h1></div>
+  <nav>
+    <ul>
+      <li><a href="electronics/calculators.html">🛠️ Tools</a></li>
+      <li><a href="games/tacobaguet-game.html">🎮 Games</a></li>
+      <li><a href="videos/index.html">📺 Videos</a></li>
+    </ul>
+  </nav>
+  <div class="top-actions">
+    <div id="userMenu">
+      <a class="btn" href="logon/register.html">Register / Login</a>
     </div>
+  </div>
+</header>
 
-    <nav aria-label="Main navigation">
-      <ul>
-        <li><a href="electronics/normal-calculators.html">🛠️ Tools</a></li>
-        <li><a href="games/tacobaguet-game.html">🎮 Games</a></li>
-        <li><a href="videos/index.html">📺 Videos</a></li>
-      </ul>
-    </nav>
+<main class="container">
+  <section class="intro">
+    <h2>Welcome to the TacoBaguet™ Hub</h2>
+    <p>Your one-stop destination for all things TacoBaguet™. Explore our tools, games, and videos to enhance your experience.</p>
+  </section>
 
-    <div class="top-actions">
-      <a class="btn" href="register.html">Register / Login</a>
+  <section class="featured">
+    <div class="card" id="toolsTab">
+      <h3>Tool of the Month</h3>
+      <p>🔧 Placeholder for latest calculator or electronics tool.</p>
     </div>
-  </header>
+    <div class="card" id="gamesTab">
+      <h3>Game Preview</h3>
+      <p>🎮 Placeholder for upcoming TacoBaguet™ game.</p>
+    </div>
+    <div class="card" id="videosTab">
+      <h3>Latest Video</h3>
+      <p>📺 Placeholder for latest video tutorial.</p>
+    </div>
+  </section>
+</main>
 
-  <main class="container">
-    <section class="intro" aria-labelledby="intro-heading">
-      <h2 id="intro-heading">Welcome to the TacoBaguet™ Hub</h2>
-      <p>Your one-stop destination for all things TacoBaguet™. Explore our tools, games, and videos to enhance your experience.</p>
-    </section>
+<footer>
+  <p>&copy; 2025 TacoBaguet™. All rights reserved.</p>
+</footer>
 
-    <section class="featured" aria-label="Featured content">
-      <div class="card">
-        <h3>Tool of the Month</h3>
-        <p>Discover our latest calculator tool designed to make your life easier.</p>
-      </div>
-      <div class="card">
-        <h3>Game Preview</h3>
-        <p>Get a sneak peek into our upcoming TacoBaguet™ game.</p>
-      </div>
-      <div class="card">
-        <h3>Latest Video</h3>
-        <p>Watch our newest video tutorial on TacoBaguet™ features.</p>
-      </div>
-    </section>
-  </main>
-
-  <footer>
-    <p>&copy; 2025 TacoBaguet™. All rights reserved.</p>
-  </footer>
+<script src="js/PlaceHolder.js"></script>
 </body>
 </html>

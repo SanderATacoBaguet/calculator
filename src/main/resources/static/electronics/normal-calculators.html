@@ -7,6 +7,8 @@
 <link rel="stylesheet" href="../css/style.css">
 </head>
 <body>
+<!-- Wrap in tab ID for toggles -->
+<div id="toolsTab">
 <h1>🔋 Normal Electronics Calculators</h1>
 
 <!-- Ohm's Law -->
@@ -53,8 +55,17 @@
     <button onclick="calculateCable()">Calculate</button>
     <div class="output" id="cableResult"></div>
 </section>
+</div>
 
-<a href="electronics.html">⬅ Back to Electronics Hub</a>
+<a href="calculators.html">⬅ Back to Electronics Hub</a>
 <script src="../js/calculator.js"></script>
+<script src="../js/PlaceHolder.js"></script>
+<script>
+document.addEventListener("DOMContentLoaded", ()=>{
+    const user = getCurrentUser();
+    if(!user) return;
+    applyPreferences(user.preferences);
+});
+</script>
 </body>
 </html>

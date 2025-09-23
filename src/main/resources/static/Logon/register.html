@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Register | TacoBaguet Hub</title>
+<link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+<main style="max-width:400px;margin:50px auto;padding:20px;border:1px solid #ccc;border-radius:8px;background:#f7f7f7">
+<h2>Register New Account</h2>
+<form id="registerForm">
+  <label>Email: <input type="email" id="email" required></label><br><br>
+  <label>Username: <input type="text" id="username" required></label><br><br>
+  <label>Password: <input type="password" id="password" required></label><br><br>
+  <button type="submit">Register</button>
+</form>
+<p id="message" style="color:red;"></p>
+<p>Already have an account? <a href="login.html">Log in</a></p>
+<script src="../js/PlaceHolder.js"></script>
+<script>
+document.getElementById("registerForm").addEventListener("submit", async (e) => {
+    e.preventDefault();
+    const email = document.getElementById("email").value;
+    const username = document.getElementById("username").value;
+    const password = document.getElementById("password").value;
+
+    const response = await registerUser(email, username, password);
+    document.getElementById("message").textContent = response.message;
+    if(response.success){
+        alert("✅ Verification email sent! Check your inbox.");
+        window.location.href = "login.html";
+    }
+});
+</script>
+</main>
+</body>
+</html>

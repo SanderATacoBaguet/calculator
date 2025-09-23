@@ -7,8 +7,19 @@
     <link rel="stylesheet" href="../css/style.css">
 </head>
 <body>
+<div id="gamesTab">
     <h1>🎮 TacoBaguet™ Game</h1>
     <p>This is a placeholder for the future TacoBaguet™ game!</p>
     <p><a href="../index.html">⬅ Back to Hub</a></p>
+</div>
+
+<script src="../js/PlaceHolder.js"></script>
+<script>
+document.addEventListener("DOMContentLoaded", ()=>{
+    const user = getCurrentUser();
+    if(!user) return;
+    applyPreferences(user.preferences);
+});
+</script>
 </body>
 </html>

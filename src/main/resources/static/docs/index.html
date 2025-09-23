@@ -1,18 +1,57 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<title>TacoBaguet™ Docs</title>
-<link rel="stylesheet" href="../css/style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TacoBaguet™ Docs</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <style>
+        body {
+            font-family: system-ui, sans-serif;
+            padding: 20px;
+            background: #f7f7f7;
+            color: #111;
+        }
+        h1 {
+            margin-bottom: 20px;
+        }
+        ul {
+            list-style: none;
+            padding: 0;
+        }
+        ul li {
+            margin-bottom: 12px;
+        }
+        ul li a {
+            text-decoration: none;
+            font-weight: 600;
+            color: #ff6600;
+            padding: 8px 14px;
+            display: inline-block;
+            border-radius: 6px;
+            background: #fff;
+            box-shadow: 0 1px 4px rgba(0,0,0,0.1);
+            transition: background 0.2s, color 0.2s;
+        }
+        ul li a:hover {
+            background: #ff6600;
+            color: #fff;
+        }
+        a.back {
+            display: inline-block;
+            margin-top: 30px;
+            color: #333;
+        }
+    </style>
 </head>
 <body>
-<h1>📄 Documentation - TacoBaguet™</h1>
+    <h1>📄 Documentation - TacoBaguet™</h1>
 
-<ul>
-    <li><a href="electric.html">Electric Calculator Explanation</a></li>
-    <li><a href="normal.html">Normal Calculators Explanation</a></li>
-</ul>
+    <ul>
+        <li><a href="electric.html">⚡ Electric Calculator Explanation</a></li>
+        <li><a href="normal.html">🔋 Normal Calculators Explanation</a></li>
+    </ul>
 
-<p><a href="../index.html">⬅ Back to Home</a></p>
+    <a class="back" href="../index.html">⬅ Back to Home</a>
 </body>
 </html>

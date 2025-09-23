@@ -19,18 +19,29 @@
     </style>
 </head>
 <body>
+<div id="videosTab">
     <h1>📺 TacoBaguet™ Videos</h1>
 
-    <h2>A minor</h2>
+    <h2>A mimir</h2>
     <div class="video-container">
         <iframe 
             src="https://www.youtube.com/embed/4IREKpl0Qk0" 
-            title="A minor" 
+            title="A mimir" 
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
             allowfullscreen>
         </iframe>
     </div>
 
     <p><a href="../index.html">⬅ Back to Hub</a></p>
+</div>
+
+<script src="../js/PlaceHolder.js"></script>
+<script>
+document.addEventListener("DOMContentLoaded", ()=>{
+    const user = getCurrentUser();
+    if(!user) return;
+    applyPreferences(user.preferences);
+});
+</script>
 </body>
 </html>
