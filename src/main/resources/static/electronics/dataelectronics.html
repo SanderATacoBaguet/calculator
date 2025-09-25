@@ -15,6 +15,7 @@ button { margin-top: 10px; padding: 8px 14px; background: #ff6600; color: #fff; 
 button:hover { opacity: 0.9; }
 .output { margin-top: 10px; font-weight: bold; }
 .collapsed-content { display: none; margin-top: 10px; }
+.explain-btn { background:#0066ff; margin-left: 6px; }
 </style>
 </head>
 <body>
@@ -30,6 +31,11 @@ button:hover { opacity: 0.9; }
         <label>Speed (MB/s): <input type="number" id="MBps" value="0"></label>
         <button onclick="convertToMb()">Convert to Mb/s</button>
         <div class="output" id="MBResult"></div>
+
+        <!-- Explain button -->
+        <a href="../XPLANE/data.html#conversion" target="_blank">
+            <button class="explain-btn">Explain</button>
+        </a>
     </div>
 </section>
 
@@ -40,6 +46,10 @@ button:hover { opacity: 0.9; }
         <label>Speed (Mb/s): <input type="number" id="downloadSpeed" value="0"></label>
         <button onclick="calculateDownloadTime()">Calculate</button>
         <div class="output" id="downloadResult"></div>
+
+        <a href="../XPLANE/data.html#download" target="_blank">
+            <button class="explain-btn">Explain</button>
+        </a>
     </div>
 </section>
 
@@ -50,6 +60,10 @@ button:hover { opacity: 0.9; }
         <label>Speed (Mb/s): <input type="number" id="uploadSpeed" value="0"></label>
         <button onclick="calculateUploadTime()">Calculate</button>
         <div class="output" id="uploadResult"></div>
+
+        <a href="../XPLANE/data.html#upload" target="_blank">
+            <button class="explain-btn">Explain</button>
+        </a>
     </div>
 </section>
 

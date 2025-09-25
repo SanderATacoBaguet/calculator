@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>📘 XPLANE Electronics Hub</title>
+<link rel="stylesheet" href="../css/style.css">
+<style>
+body {
+    font-family: system-ui, sans-serif;
+    background: linear-gradient(to right, #f0f4ff, #e6f2ff);
+    color: #111;
+    padding: 30px;
+    margin: 0;
+}
+h1 {
+    text-align: center;
+    color: #0047b3;
+    margin-bottom: 40px;
+}
+.container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+}
+.card {
+    background: #fff;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    padding: 20px;
+    width: 220px;
+    text-align: center;
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+}
+.card a {
+    text-decoration: none;
+    color: #fff;
+}
+.button {
+    display: inline-block;
+    padding: 10px 18px;
+    margin-top: 15px;
+    background: #0066ff;
+    color: #fff;
+    border-radius: 8px;
+    font-weight: bold;
+    transition: background 0.2s;
+}
+.button:hover {
+    background: #0047b3;
+}
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 30px;
+    align-items: center;
+}
+.navbar a {
+    text-decoration: none;
+    color: #fff;
+    background: #ff6600;
+    padding: 10px 18px;
+    border-radius: 8px;
+    font-weight: bold;
+    transition: background 0.2s;
+}
+.navbar a:hover {
+    background: #cc5200;
+}
+</style>
+</head>
+<body>
+
+<div class="navbar">
+    <a href="../electronics/calculators.html">⬅ Calculators Home</a>
+    <a href="index.html">🏠 XPLANE Home</a>
+</div>
+
+<h1>📘 XPLANE Electronics Hub</h1>
+
+<div class="container">
+    <div class="card">
+        <h2>Ohm's Law</h2>
+        <p>Learn how voltage, current, and resistance relate.</p>
+        <a href="uri.html#ohms" class="button">Explore</a>
+    </div>
+
+    <div class="card">
+        <h2>Series Circuit</h2>
+        <p>Understand how resistors add in series circuits.</p>
+        <a href="uri.html#series" class="button">Explore</a>
+    </div>
+
+    <div class="card">
+        <h2>Parallel Circuit</h2>
+        <p>See how resistors combine in parallel circuits.</p>
+        <a href="uri.html#parallel" class="button">Explore</a>
+    </div>
+
+    <div class="card">
+        <h2>Transformer</h2>
+        <p>Learn voltage, current, and turns relationships.</p>
+        <a href="uri.html#transformer" class="button">Explore</a>
+    </div>
+
+    <div class="card">
+        <h2>Cable Resistance</h2>
+        <p>Learn how length, area, and resistivity affect resistance.</p>
+        <a href="cable.html#cable" class="button">Explore</a>
+    </div>
+
+    <div class="card">
+        <h2>Power & Energy</h2>
+        <p>Understand power consumption and energy usage.</p>
+        <a href="power.html#power" class="button">Explore</a>
+    </div>
+</div>
+
+</body>
+</html>

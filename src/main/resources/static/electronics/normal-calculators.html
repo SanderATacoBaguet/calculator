@@ -16,6 +16,7 @@ button { margin-top: 10px; padding: 8px 14px; background: #ff6600; color: #fff; 
 button:hover { opacity: 0.9; }
 .output { margin-top: 10px; font-weight: bold; }
 .collapsed-content { display: none; margin-top: 10px; }
+.explain-btn { background:#0066ff; margin-left: 6px; }
 </style>
 </head>
 <body>
@@ -29,6 +30,9 @@ button:hover { opacity: 0.9; }
         <label>Current (I): <input type="number" id="i" value="0"></label>
         <label>Resistance (R): <input type="number" id="r" value="0"></label>
         <button onclick="calculateOhmsLaw()">Calculate</button>
+        <a href="../XPLANE/uri.html#ohms" target="_blank">
+            <button class="explain-btn">Explain</button>
+        </a>
         <div class="output" id="ohmsResult"></div>
     </div>
 </section>
@@ -38,6 +42,9 @@ button:hover { opacity: 0.9; }
     <div class="collapsed-content">
         <label>Resistors (comma-separated Ω): <input type="text" id="seriesInput" placeholder="10,20,30"></label>
         <button onclick="calculateSeries()">Calculate</button>
+        <a href="../XPLANE/uri.html#series" target="_blank">
+            <button class="explain-btn">Explain</button>
+        </a>
         <div class="output" id="seriesResult"></div>
     </div>
 </section>
@@ -47,6 +54,9 @@ button:hover { opacity: 0.9; }
     <div class="collapsed-content">
         <label>Resistors (comma-separated Ω): <input type="text" id="parallelInput" placeholder="10,20,30"></label>
         <button onclick="calculateParallel()">Calculate</button>
+        <a href="../XPLANE/uri.html#parallel" target="_blank">
+            <button class="explain-btn">Explain</button>
+        </a>
         <div class="output" id="parallelResult"></div>
     </div>
 </section>
@@ -61,6 +71,9 @@ button:hover { opacity: 0.9; }
         <label>Secondary Current (I2): <input type="number" id="I2" value=""></label>
         <label>Secondary Turns (T2): <input type="number" id="T2" value=""></label>
         <button onclick="calculateTransformer()">Calculate Missing</button>
+        <a href="../XPLANE/uri.html#transformer" target="_blank">
+            <button class="explain-btn">Explain</button>
+        </a>
         <div class="output" id="transformerResult"></div>
     </div>
 </section>
@@ -72,6 +85,9 @@ button:hover { opacity: 0.9; }
         <label>Area (mm²): <input type="number" id="area" value="1"></label>
         <label>Resistivity (Ω·mm²/m): <input type="number" id="resistivity" value="0.0175"></label>
         <button onclick="calculateCable()">Calculate</button>
+        <a href="../XPLANE/cable.html#cable" target="_blank">
+            <button class="explain-btn">Explain</button>
+        </a>
         <div class="output" id="cableResult"></div>
     </div>
 </section>
@@ -83,6 +99,9 @@ button:hover { opacity: 0.9; }
         <label>Current (I): <input type="number" id="powerI" value="0"></label>
         <label>Time (h): <input type="number" id="timeH" value="0"></label>
         <button onclick="calculatePower()">Calculate Power & Energy</button>
+        <a href="../XPLANE/power.html#power" target="_blank">
+            <button class="explain-btn">Explain</button>
+        </a>
         <div class="output" id="powerResult"></div>
     </div>
 </section>

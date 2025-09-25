@@ -37,29 +37,48 @@ function calculateTransformer() {
     let I2 = parseFloat(document.getElementById('I2').value) || null;
     let T2 = parseFloat(document.getElementById('T2').value) || null;
 
-    let filled = [U1,I1,T1,U2,I2,T2].filter(v => v !== null).length;
-    if(filled < 5) {
-        document.getElementById('transformerResult').innerText = "Enter 5 values to calculate the 6th.";
+    let values = { U1, I1, T1, U2, I2, T2 };
+    let filled = Object.values(values).filter(v => v !== null).length;
+
+    if (filled < 4) {
+        document.getElementById('transformerResult').innerText =
+            "Enter at least 4 values (1 full pair + 2 singles).";
         return;
     }
 
-    // Calculate missing
-    if(U1 === null) U1 = U2 * T1 / T2;
-    else if(I1 === null) I1 = I2 * U2 / U1;
-    else if(T1 === null) T1 = U1 * T2 / U2;
-    else if(U2 === null) U2 = U1 * T2 / T1;
-    else if(I2 === null) I2 = I1 * U1 / U2;
-    else if(T2 === null) T2 = U2 * T1 / U1;
+    // 1) Use turns ratio if available
+    if (T1 !== null && T2 !== null) {
+        if (U1 !== null && U2 === null) U2 = U1 * T2 / T1;
+        if (U2 !== null && U1 === null) U1 = U2 * T1 / T2;
+        if (I1 !== null && I2 === null) I2 = I1 * U1 / U2;
+        if (I2 !== null && I1 === null) I1 = I2 * U2 / U1;
+    }
 
-    // Update the fields
-    document.getElementById('U1').value = U1.toFixed(2);
-    document.getElementById('I1').value = I1.toFixed(2);
-    document.getElementById('T1').value = T1.toFixed(2);
-    document.getElementById('U2').value = U2.toFixed(2);
-    document.getElementById('I2').value = I2.toFixed(2);
-    document.getElementById('T2').value = T2.toFixed(2);
+    // 2) Use voltage pair if available
+    if (U1 !== null && U2 !== null) {
+        if (T1 !== null && T2 === null) T2 = U2 * T1 / U1;
+        if (T2 !== null && T1 === null) T1 = U1 * T2 / U2;
+        if (I1 !== null && I2 === null) I2 = I1 * U1 / U2;
+        if (I2 !== null && I1 === null) I1 = I2 * U2 / U1;
+    }
 
-    document.getElementById('transformerResult').innerText = "Calculation complete!";
+    // 3) Use current pair if available
+    if (I1 !== null && I2 !== null) {
+        if (U1 !== null && U2 === null) U2 = I1 * U1 / I2;
+        if (U2 !== null && U1 === null) U1 = I2 * U2 / I1;
+        if (T1 !== null && T2 === null) T2 = I1 * T1 / I2;
+        if (T2 !== null && T1 === null) T1 = I2 * T2 / I1;
+    }
+
+    // Update the fields safely
+    if (U1 !== null) document.getElementById('U1').value = U1.toFixed(2);
+    if (I1 !== null) document.getElementById('I1').value = I1.toFixed(2);
+    if (T1 !== null) document.getElementById('T1').value = T1.toFixed(2);
+    if (U2 !== null) document.getElementById('U2').value = U2.toFixed(2);
+    if (I2 !== null) document.getElementById('I2').value = I2.toFixed(2);
+    if (T2 !== null) document.getElementById('T2').value = T2.toFixed(2);
+
+    document.getElementById('transformerResult').innerText = "✅ Calculation complete!";
 }
 
 // Cable Resistance
