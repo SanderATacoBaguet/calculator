@@ -5,67 +5,97 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Normal Electronics Calculators</title>
 <link rel="stylesheet" href="../css/style.css">
+<style>
+body { font-family: system-ui, sans-serif; padding: 20px; background: #f7f7f7; color: #111; }
+h1 { margin-bottom: 20px; }
+section { margin-bottom: 20px; border: 1px solid #ccc; border-radius: 6px; padding: 12px; }
+section h2 { cursor: pointer; margin: 0; }
+label { display: block; margin-top: 8px; }
+input { padding: 6px; margin-left: 6px; width: 120px; }
+button { margin-top: 10px; padding: 8px 14px; background: #ff6600; color: #fff; border: none; border-radius: 6px; cursor: pointer; }
+button:hover { opacity: 0.9; }
+.output { margin-top: 10px; font-weight: bold; }
+.collapsed-content { display: none; margin-top: 10px; }
+</style>
 </head>
 <body>
-<!-- Wrap in tab ID for toggles -->
 <div id="toolsTab">
 <h1>🔋 Normal Electronics Calculators</h1>
 
-<!-- Ohm's Law -->
 <section>
-    <h2>⚖️ Ohm’s Law</h2>
-    <label>Voltage (V): <input type="number" id="v" value="0"></label>
-    <label>Current (I): <input type="number" id="i" value="0"></label>
-    <label>Resistance (R): <input type="number" id="r" value="0"></label>
-    <button onclick="calculateOhmsLaw()">Calculate</button>
-    <div class="output" id="ohmsResult"></div>
+    <h2 onclick="toggleSection(this)">⚖️ Ohm’s Law</h2>
+    <div class="collapsed-content">
+        <label>Voltage (V): <input type="number" id="v" value="0"></label>
+        <label>Current (I): <input type="number" id="i" value="0"></label>
+        <label>Resistance (R): <input type="number" id="r" value="0"></label>
+        <button onclick="calculateOhmsLaw()">Calculate</button>
+        <div class="output" id="ohmsResult"></div>
+    </div>
 </section>
 
-<!-- Series Circuit -->
 <section>
-    <h2>📏 Series Circuit</h2>
-    <label>Resistors (comma-separated Ω): <input type="text" id="seriesInput" placeholder="10,20,30"></label>
-    <button onclick="calculateSeries()">Calculate</button>
-    <div class="output" id="seriesResult"></div>
+    <h2 onclick="toggleSection(this)">📏 Series Circuit</h2>
+    <div class="collapsed-content">
+        <label>Resistors (comma-separated Ω): <input type="text" id="seriesInput" placeholder="10,20,30"></label>
+        <button onclick="calculateSeries()">Calculate</button>
+        <div class="output" id="seriesResult"></div>
+    </div>
 </section>
 
-<!-- Parallel Circuit -->
 <section>
-    <h2>🔗 Parallel Circuit</h2>
-    <label>Resistors (comma-separated Ω): <input type="text" id="parallelInput" placeholder="10,20,30"></label>
-    <button onclick="calculateParallel()">Calculate</button>
-    <div class="output" id="parallelResult"></div>
+    <h2 onclick="toggleSection(this)">🔗 Parallel Circuit</h2>
+    <div class="collapsed-content">
+        <label>Resistors (comma-separated Ω): <input type="text" id="parallelInput" placeholder="10,20,30"></label>
+        <button onclick="calculateParallel()">Calculate</button>
+        <div class="output" id="parallelResult"></div>
+    </div>
 </section>
 
-<!-- Transformer -->
 <section>
-    <h2>🔄 Transformer</h2>
-    <label>Primary Voltage (Vp): <input type="number" id="vp" value="0"></label>
-    <label>Turns Ratio (Np/Ns): <input type="number" id="turns" value="1"></label>
-    <button onclick="calculateTransformer()">Calculate</button>
-    <div class="output" id="transformerResult"></div>
+    <h2 onclick="toggleSection(this)">🔄 Transformer</h2>
+    <div class="collapsed-content">
+        <label>Primary Voltage (U1): <input type="number" id="U1" value=""></label>
+        <label>Primary Current (I1): <input type="number" id="I1" value=""></label>
+        <label>Primary Turns (T1): <input type="number" id="T1" value=""></label>
+        <label>Secondary Voltage (U2): <input type="number" id="U2" value=""></label>
+        <label>Secondary Current (I2): <input type="number" id="I2" value=""></label>
+        <label>Secondary Turns (T2): <input type="number" id="T2" value=""></label>
+        <button onclick="calculateTransformer()">Calculate Missing</button>
+        <div class="output" id="transformerResult"></div>
+    </div>
 </section>
 
-<!-- Cable Resistance -->
 <section>
-    <h2>🧵 Cable Resistance</h2>
-    <label>Length (m): <input type="number" id="length" value="0"></label>
-    <label>Area (mm²): <input type="number" id="area" value="1"></label>
-    <label>Resistivity (Ω·mm²/m): <input type="number" id="resistivity" value="0.0175"></label>
-    <button onclick="calculateCable()">Calculate</button>
-    <div class="output" id="cableResult"></div>
+    <h2 onclick="toggleSection(this)">🧵 Cable Resistance</h2>
+    <div class="collapsed-content">
+        <label>Length (m): <input type="number" id="length" value="0"></label>
+        <label>Area (mm²): <input type="number" id="area" value="1"></label>
+        <label>Resistivity (Ω·mm²/m): <input type="number" id="resistivity" value="0.0175"></label>
+        <button onclick="calculateCable()">Calculate</button>
+        <div class="output" id="cableResult"></div>
+    </div>
 </section>
+
+<section>
+    <h2 onclick="toggleSection(this)">⚡ Power & Energy</h2>
+    <div class="collapsed-content">
+        <label>Voltage (V): <input type="number" id="powerV" value="0"></label>
+        <label>Current (I): <input type="number" id="powerI" value="0"></label>
+        <label>Time (h): <input type="number" id="timeH" value="0"></label>
+        <button onclick="calculatePower()">Calculate Power & Energy</button>
+        <div class="output" id="powerResult"></div>
+    </div>
+</section>
+
 </div>
 
 <a href="calculators.html">⬅ Back to Electronics Hub</a>
 <script src="../js/calculator.js"></script>
-<script src="../js/PlaceHolder.js"></script>
 <script>
-document.addEventListener("DOMContentLoaded", ()=>{
-    const user = getCurrentUser();
-    if(!user) return;
-    applyPreferences(user.preferences);
-});
+function toggleSection(el) {
+    const content = el.nextElementSibling;
+    content.style.display = content.style.display === "block" ? "none" : "block";
+}
 </script>
 </body>
 </html>

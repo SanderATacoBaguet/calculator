@@ -28,12 +28,38 @@ function calculateParallel() {
     document.getElementById('parallelResult').innerText = `Total Parallel Resistance = ${total.toFixed(2)} Ω`;
 }
 
-// Transformer
+// Transformer (primary -> secondary)
 function calculateTransformer() {
-    const vp = parseFloat(document.getElementById('vp').value) || 0;
-    const turns = parseFloat(document.getElementById('turns').value) || 1;
-    const vs = vp / turns;
-    document.getElementById('transformerResult').innerText = `Secondary Voltage = ${vs} V`;
+    let U1 = parseFloat(document.getElementById('U1').value) || null;
+    let I1 = parseFloat(document.getElementById('I1').value) || null;
+    let T1 = parseFloat(document.getElementById('T1').value) || null;
+    let U2 = parseFloat(document.getElementById('U2').value) || null;
+    let I2 = parseFloat(document.getElementById('I2').value) || null;
+    let T2 = parseFloat(document.getElementById('T2').value) || null;
+
+    let filled = [U1,I1,T1,U2,I2,T2].filter(v => v !== null).length;
+    if(filled < 5) {
+        document.getElementById('transformerResult').innerText = "Enter 5 values to calculate the 6th.";
+        return;
+    }
+
+    // Calculate missing
+    if(U1 === null) U1 = U2 * T1 / T2;
+    else if(I1 === null) I1 = I2 * U2 / U1;
+    else if(T1 === null) T1 = U1 * T2 / U2;
+    else if(U2 === null) U2 = U1 * T2 / T1;
+    else if(I2 === null) I2 = I1 * U1 / U2;
+    else if(T2 === null) T2 = U2 * T1 / U1;
+
+    // Update the fields
+    document.getElementById('U1').value = U1.toFixed(2);
+    document.getElementById('I1').value = I1.toFixed(2);
+    document.getElementById('T1').value = T1.toFixed(2);
+    document.getElementById('U2').value = U2.toFixed(2);
+    document.getElementById('I2').value = I2.toFixed(2);
+    document.getElementById('T2').value = T2.toFixed(2);
+
+    document.getElementById('transformerResult').innerText = "Calculation complete!";
 }
 
 // Cable Resistance
@@ -43,4 +69,14 @@ function calculateCable() {
     const rho = parseFloat(document.getElementById('resistivity').value) || 0.0175;
     const r = (rho * length) / area;
     document.getElementById('cableResult').innerText = `Cable Resistance = ${r.toFixed(4)} Ω`;
+}
+
+// Power & Energy
+function calculatePower() {
+    const v = parseFloat(document.getElementById('powerV').value) || 0;
+    const i = parseFloat(document.getElementById('powerI').value) || 0;
+    const t = parseFloat(document.getElementById('timeH').value) || 0;
+    const power = v * i;
+    const energy = power * t;
+    document.getElementById('powerResult').innerText = `Power = ${power.toFixed(2)} W, Energy = ${energy.toFixed(2)} Wh`;
 }
